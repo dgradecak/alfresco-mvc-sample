@@ -1,0 +1,79 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>com.gradecak.alfresco</groupId>
+  <artifactId>alfresco-mvc-sample</artifactId>
+  <version>2.0.0-RELEASE</version>
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+    <alfresco.groupId>org.alfresco</alfresco.groupId>
+    <alfresco.version>4.2.e</alfresco.version>
+    <com.gradecak.alfresco.version>2.0.0-RELEASE</com.gradecak.alfresco.version>
+  </properties>
+
+  <dependencies>
+    <dependency>
+      <groupId>com.gradecak.alfresco</groupId>
+      <artifactId>alfresco-mvc</artifactId>
+      <version>${com.gradecak.alfresco.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>com.gradecak.alfresco</groupId>
+      <artifactId>alfresco-simpless</artifactId>
+      <version>${com.gradecak.alfresco.version}</version>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>${alfresco.groupId}</groupId>
+      <artifactId>alfresco-data-model</artifactId>
+      <scope>compile</scope>
+    </dependency>
+    <dependency>
+      <groupId>${alfresco.groupId}</groupId>
+      <artifactId>alfresco-repository</artifactId>
+      <scope>compile</scope>
+    </dependency>
+  </dependencies>
+
+  <repositories>
+    <repository>
+      <id>alfresco-public</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+    </repository>
+    <repository>
+      <id>alfresco-public-snapshots</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
+    </repository>
+    <repository>
+      <id>gradecak-public</id>
+      <url>http://gradecak.com/repository/releases</url>
+    </repository>
+    <repository>
+      <id>gradecak-public-snapshots</id>
+      <url>http://gradecak.com/repository/snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>${alfresco.groupId}</groupId>
+        <artifactId>alfresco-platform-distribution</artifactId>
+        <version>${alfresco.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>
