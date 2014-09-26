@@ -7,13 +7,12 @@ import java.util.Map;
 import org.alfresco.model.ContentModel;
 import org.alfresco.service.namespace.QName;
 
-import com.gradecak.alfresco.mvc.mapper.NodeMapper;
+import com.gradecak.alfresco.mvc.mapper.NodePropertiesMapper;
 import com.gradecak.alfresco.mvc.sample.domain.Document;
 
-public class DocumentNodeMapper implements NodeMapper<Document> {
+public class DocumentNodeMapper implements NodePropertiesMapper<Document> {
 
-	public Document mapNode(Map<QName, Serializable> properties) {
-
+	public Document mapNodeProperties(Map<QName, Serializable> properties) {
 		Document dl = new Document();
 		dl.setDescription((String) properties.get(ContentModel.PROP_DESCRIPTION));
 
