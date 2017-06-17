@@ -13,9 +13,9 @@ import org.alfresco.service.namespace.QName;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.gradecak.alfresco.mvc.Query;
+import com.gradecak.alfresco.querytemplate.QueryBuilder;
+import com.gradecak.alfresco.querytemplate.QueryTemplate;
 import com.gradecak.alfresco.mvc.annotation.AlfrescoTransaction;
-import com.gradecak.alfresco.mvc.mapper.QueryTemplate;
 import com.gradecak.alfresco.mvc.sample.domain.Document;
 import com.gradecak.alfresco.mvc.sample.mapper.DocumentNodeMapper;
 
@@ -51,7 +51,7 @@ public class DocumentService {
 	
 	@AlfrescoTransaction(readOnly = true)
 	public List<Document> findAll() {
-		return new QueryTemplate(serviceRegistry).queryForList(new Query().type(ContentModel.TYPE_CONTENT), new DocumentNodeMapper());
+		return new QueryTemplate(serviceRegistry).queryForList(new QueryBuilder().type(ContentModel.TYPE_CONTENT), new DocumentNodeMapper());
 	}
 
 }

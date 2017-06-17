@@ -8,8 +8,8 @@ import org.alfresco.model.ContentModel;
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.namespace.QName;
 
-import com.gradecak.alfresco.mvc.mapper.NodePropertiesMapper;
 import com.gradecak.alfresco.mvc.sample.domain.Document;
+import com.gradecak.alfresco.querytemplate.NodePropertiesMapper;
 
 public class DocumentNodeMapper implements NodePropertiesMapper<Document> {
 

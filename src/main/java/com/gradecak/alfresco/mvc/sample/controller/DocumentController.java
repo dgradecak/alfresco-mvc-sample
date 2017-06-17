@@ -20,13 +20,32 @@ import com.gradecak.alfresco.mvc.sample.service.DocumentService;
  */
 
 @Controller
-@RequestMapping("/document/**")
+@RequestMapping("/document")
 public class DocumentController {
 
   @Autowired
   private DocumentService documentService;
 
-  @RequestMapping(value = "sample", method = { RequestMethod.POST, RequestMethod.GET })
+  @RequestMapping(value = "sample", method = { RequestMethod.GET })
+  @ResponseBody
+  public Map<String, Object> sample(final String description) throws IOException {
+
+    // for this show case purposes we call create which is marked as
+    // AlfrescoTransaction
+    Document docCreated = new Document();
+    docCreated.setDescription(description);
+    NodeRef createdRef = documentService.create(docCreated);
+
+    // in a second transaction we do the update
+    Document document = documentService.get(createdRef);
+    document.setDescription(document.getDescription() + " updated!");
+    documentService.update(createdRef, document);
+
+    // ... yet another transaction
+    return ResponseMapBuilder.createResponseMap(documentService.get(createdRef), true).build();
+  }
+  
+  @RequestMapping(value = "sample", method = { RequestMethod.POST })
   @ResponseBody
   public Map<String, Object> sample(@RequestBody final Document docCreated) throws IOException {
 
