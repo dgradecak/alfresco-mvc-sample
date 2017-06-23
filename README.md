@@ -1,3 +1,6 @@
+DEPRECATED (use the samples in the alfresco-mvc project)
+---
+
 alfresco-mvc-sample
 ====
 
