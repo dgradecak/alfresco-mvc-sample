@@ -1,0 +1,58 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.gradecak.alfresco-mvc</groupId>
+  <version>5.0.0</version>
+  <artifactId>alfresco-mvc-samples-bom</artifactId>
+  <packaging>pom</packaging>
+  
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <alfresco.groupId>org.alfresco</alfresco.groupId>
+    <alfresco.version>5.2.f</alfresco.version>
+	<alfresco.mvc.version>5.0.0-RELEASE</alfresco.mvc.version>
+  </properties>
+
+  <modules>
+    <module>alfresco-mvc-aop-sample</module>
+    <module>alfresco-mvc-rest-sample</module>
+    <module>alfresco-mvc-querytemplate-sample</module>
+  </modules>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>${alfresco.groupId}</groupId>
+        <artifactId>alfresco-platform-distribution</artifactId>
+        <version>${alfresco.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      <dependency>
+        <groupId>com.gradecak.alfresco-mvc</groupId>
+        <artifactId>alfresco-mvc-bom</artifactId>
+        <version>${alfresco.mvc.version}</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+
+  <repositories>
+    <repository>
+      <id>alfresco-public</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public</url>
+    </repository>
+    <repository>
+      <id>alfresco-public-snapshots</id>
+      <url>https://artifacts.alfresco.com/nexus/content/groups/public-snapshots</url>
+      <snapshots>
+        <enabled>true</enabled>
+        <updatePolicy>daily</updatePolicy>
+      </snapshots>
+    </repository>
+  </repositories>
+
+
+</project>
