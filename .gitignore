@@ -7,3 +7,6 @@ bin
 Servers
 deployment
 local
+alfresco-mvc-aop-sample/alfresco.log.*
+alfresco-mvc-aop-sample/alfresco.log
+alfresco-mvc-aop-sample/alf_data_dev/
