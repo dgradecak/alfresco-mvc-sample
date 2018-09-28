@@ -22,20 +22,6 @@ import com.gradecak.alfresco.mvc.sample.service.QueryTemplateService;
 @EnableAlfrescoMvcProxy(basePackageClasses = AlfrescoMvcQueryTemplateController.class)
 public class AlfrescoMvcQueryTemplateServletContext extends AlfrescoMvcServletContextConfig {
   
-  @Bean
-  public PageableHandlerMethodArgumentResolver pageableResolver() {
-    return new PageableHandlerMethodArgumentResolver(sortResolver());
-  }
-
-  @Bean
-  public SortHandlerMethodArgumentResolver sortResolver() {
-    return new SortHandlerMethodArgumentResolver();
-  }
-  
-  public void addArgumentResolvers(List<HandlerMethodArgumentResolver> argumentResolvers) {
-    argumentResolvers.add(sortResolver());
-    argumentResolvers.add(pageableResolver());
-  }
   
   @Bean
   public static PropertySourcesPlaceholderConfigurer propertyConfigurer() {

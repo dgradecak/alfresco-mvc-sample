@@ -36,8 +36,4 @@ public class AlfrescoMvcQueryTemplateController {
     return new ResponseEntity<>(service.search(), HttpStatus.OK);
   }
   
-  @RequestMapping(value = "pageable", method = { RequestMethod.GET })
-  public ResponseEntity<?> pageable(final Pageable pageable) throws IOException {
-    return new ResponseEntity<>(pageable, HttpStatus.OK);
-  }
 }
