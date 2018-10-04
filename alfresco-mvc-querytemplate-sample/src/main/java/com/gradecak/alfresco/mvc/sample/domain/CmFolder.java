@@ -1,25 +1,34 @@
 package com.gradecak.alfresco.mvc.sample.domain;
 
-import com.gradecak.alfresco.querytemplate.AbstractPersistable;
+import org.alfresco.service.cmr.repository.MLText;
 
-public class CmFolder extends AbstractPersistable {
+public class CmFolder {
 
-	private String cmTitle;
-	private String cmDescription;
+  private MLText cmTitle;
+  private MLText cmDescription;
+  private String ref;
 
-	public String getCmTitle() {
-		return cmTitle;
-	}
+  public MLText getCmTitle() {
+    return cmTitle;
+  }
 
-	public void setCmTitle(String cmTitle) {
-		this.cmTitle = cmTitle;
-	}
+  public void setCmTitle(MLText cmTitle) {
+    this.cmTitle = cmTitle;
+  }
 
-	public String getCmDescription() {
-		return cmDescription;
-	}
+  public MLText getCmDescription() {
+    return cmDescription;
+  }
 
-	public void setCmDescription(String cmDescription) {
-		this.cmDescription = cmDescription;
-	}
+  public void setCmDescription(MLText cmDescription) {
+    this.cmDescription = cmDescription;
+  }
+
+  public String getRef() {
+    return ref;
+  }
+
+  public void setRef(String ref) {
+    this.ref = ref;
+  }
 }

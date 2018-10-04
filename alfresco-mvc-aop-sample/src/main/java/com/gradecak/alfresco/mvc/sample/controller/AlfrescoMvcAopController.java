@@ -9,8 +9,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
-import com.gradecak.alfresco.mvc.ResponseMapBuilder;
 import com.gradecak.alfresco.mvc.annotation.AlfrescoTransaction;
+import com.gradecak.alfresco.mvc.rest.ResponseMapBuilder;
 import com.gradecak.alfresco.mvc.sample.service.AopService;
 
 /**
@@ -22,11 +22,11 @@ import com.gradecak.alfresco.mvc.sample.service.AopService;
 public class AlfrescoMvcAopController {
 
   @Autowired
-  private AopService service;                            
-  	                                                         
+  private AopService service;
+
   @AlfrescoTransaction(readOnly = true)
   @RequestMapping(value = "sample", method = { RequestMethod.GET })
   public ResponseEntity<?> sample() throws IOException {
-	return new ResponseEntity<>(new ResponseMapBuilder().withEntry("this is the company root noderef json representation", service.findRootNodeRef()).build(), HttpStatus.OK);
+    return new ResponseEntity<>(new ResponseMapBuilder().withEntry("this is the company root noderef json representation", service.findRootNodeRef()).build(), HttpStatus.OK);
   }
 }

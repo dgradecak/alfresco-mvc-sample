@@ -20,13 +20,11 @@ public class AlfrescoMvcRestController {
 
   @RequestMapping(value = "sample", method = { RequestMethod.GET })
   public ResponseEntity<?> sample() throws IOException {
-
     return new ResponseEntity<>("Alfresco @MVC REST sample", HttpStatus.OK);
   }
 
   @RequestMapping(value = "sample", method = { RequestMethod.POST })
   public ResponseEntity<?> sample(@RequestBody final Map<String, String> body) throws IOException {
-
     return new ResponseEntity<>(HttpStatus.OK);
   }
 }
