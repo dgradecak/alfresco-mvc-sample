@@ -1,24 +1,23 @@
 package com.gradecak.alfresco.mvc.sample.config;
 
 import org.alfresco.repo.model.Repository;
+import org.alfresco.rest.api.Nodes;
 import org.alfresco.service.ServiceRegistry;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurerAdapter;
 
-import com.gradecak.alfresco.mvc.config.AlfrescoMvcRestConfig;
+import com.gradecak.alfresco.mvc.annotation.EnableAlfrescoMvcAop;
+import com.gradecak.alfresco.mvc.rest.annotation.AlfrescoDispatcherWebscript;
+import com.gradecak.alfresco.mvc.rest.annotation.EnableAlfrescoMvcRest;
 import com.gradecak.alfresco.mvc.sample.service.QueryTemplateService;
 
 @Configuration
-public class AlfrescoMvcQueryTemplateModuleConfig extends AlfrescoMvcRestConfig {
-
-  @Override
-  protected Class<? extends WebMvcConfigurerAdapter> configureWebMvcConfigurerAdapter() {
-    return AlfrescoMvcQueryTemplateServletContext.class;
-  }
+@EnableAlfrescoMvcAop(basePackageClasses = QueryTemplateService.class)
+@EnableAlfrescoMvcRest({ @AlfrescoDispatcherWebscript(servletContext = AlfrescoMvcQueryTemplateServletContext.class) })
+public class AlfrescoMvcQueryTemplateModuleConfig {
 
   @Bean
-  public QueryTemplateService queryTemplateService(ServiceRegistry serviceRegistry, Repository repository) {
-    return new QueryTemplateService(serviceRegistry, repository);
+  public QueryTemplateService queryTemplateService(ServiceRegistry serviceRegistry, Repository repository, Nodes nodes) {
+    return new QueryTemplateService(serviceRegistry, repository, nodes);
   }
 }
