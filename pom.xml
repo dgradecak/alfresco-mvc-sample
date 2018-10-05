@@ -9,7 +9,6 @@
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    <alfresco.groupId>org.alfresco</alfresco.groupId>
     <alfresco.version>6.0.7-ga</alfresco.version>
 	<alfresco.mvc.version>6.0.0-SNAPSHOT</alfresco.mvc.version>
   </properties>
@@ -23,8 +22,8 @@
   <dependencyManagement>
     <dependencies>
       <dependency>
-        <groupId>${alfresco.groupId}</groupId>
-        <artifactId>acs-community-packaging</artifactId>
+        <groupId>org.alfresco</groupId>
+        <artifactId>alfresco-content-services-community-distribution</artifactId>
         <version>${alfresco.version}</version>
         <type>pom</type>
         <scope>import</scope>
