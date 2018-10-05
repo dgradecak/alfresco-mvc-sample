@@ -35,19 +35,19 @@
 		</dependency>
 
 		<dependency>
-			<groupId>${alfresco.groupId}</groupId>
+			<groupId>org.alfresco</groupId>
 			<artifactId>alfresco-data-model</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>${alfresco.groupId}</groupId>
+			<groupId>org.alfresco</groupId>
 			<artifactId>alfresco-repository</artifactId>
 			<scope>provided</scope>
 		</dependency>
 
 		<dependency>
-			<groupId>${alfresco.groupId}</groupId>
+			<groupId>org.alfresco</groupId>
 			<artifactId>alfresco-remote-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
