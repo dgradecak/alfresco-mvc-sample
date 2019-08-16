@@ -1,20 +1,14 @@
 package com.gradecak.alfresco.mvc.sample.config;
 
-import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.EnableWebMvc;
 
-import com.gradecak.alfresco.mvc.rest.annotation.EnableAlfrescoMvcServlet;
 import com.gradecak.alfresco.mvc.sample.controller.AlfrescoMvcQueryTemplateController;
 
 @Configuration
 @ComponentScan(basePackageClasses = { AlfrescoMvcQueryTemplateController.class })
-@EnableAlfrescoMvcServlet
-// use @EnableWebMvc if the default config should not be used
+@EnableWebMvc
 public class AlfrescoMvcQueryTemplateServletContext {
 
-  @Bean
-  public String aa() {
-    return "AAA";
-  }
 }
