@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.common.collect.ImmutableMap;
+import com.gradecak.alfresco.mvc.rest.annotation.AlfrescoRestResponse;
 
 /**
  * shows how to use the Alfresco @MVC framework
@@ -56,6 +57,12 @@ public class AlfrescoMvcRestController {
 	
 	@GetMapping(value = "noderef")
 	public ResponseEntity<?> noderef(@RequestParam NodeRef nodeRef) throws IOException {
+		return ResponseEntity.ok(nodeRef);
+	}
+	
+	@AlfrescoRestResponse
+	@GetMapping(value = "noderefAlfresco")
+	public ResponseEntity<?> noderefAlfresco(@RequestParam NodeRef nodeRef) throws IOException {
 		return ResponseEntity.ok(nodeRef);
 	}
 	

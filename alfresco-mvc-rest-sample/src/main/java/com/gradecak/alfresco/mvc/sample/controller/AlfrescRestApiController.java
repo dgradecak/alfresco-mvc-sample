@@ -9,8 +9,6 @@ import org.alfresco.rest.framework.resource.parameters.Params;
 import org.alfresco.service.cmr.repository.NodeRef;
 import org.alfresco.service.namespace.QName;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.core.io.ClassPathResource;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -22,7 +20,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.google.common.collect.ImmutableMap;
-import com.gradecak.alfresco.mvc.rest.AlfrescoResponseEntity;
+import com.gradecak.alfresco.mvc.rest.annotation.AlfrescoRestResponse;
 import com.gradecak.alfresco.mvc.sample.service.SampleService;
 
 /**
@@ -30,6 +28,7 @@ import com.gradecak.alfresco.mvc.sample.service.SampleService;
  */
 
 @RestController
+@AlfrescoRestResponse
 @RequestMapping("/restapi")
 public class AlfrescRestApiController {
 	
@@ -42,33 +41,33 @@ public class AlfrescRestApiController {
 
 	@GetMapping(value = "sample")
 	public ResponseEntity<?> sample() throws IOException {
-		return new AlfrescoResponseEntity<>("Alfresco @MVC REST sample", HttpStatus.OK);
+		return ResponseEntity.ok("Alfresco @MVC REST sample");
 	}
 	
-	@GetMapping(value = "json")
+	@GetMapping(value = "json") 
 	public ResponseEntity<?> json() throws IOException {
-		return new AlfrescoResponseEntity<>(ImmutableMap.of("key1", "value1"), HttpStatus.OK);
+		return ResponseEntity.ok(ImmutableMap.of("key1", "value1"));
 	}
 
 	@GetMapping(value = "qname")
 	public ResponseEntity<?> qname() throws IOException {
-		return new AlfrescoResponseEntity<>(QName.createQName("{aaa}aaa"), HttpStatus.OK);
+		return ResponseEntity.ok(QName.createQName("{aaa}aaa"));
 	}
 
 	@PostMapping(value = "sample")
 	public ResponseEntity<?> sample(@RequestBody final Map<String, String> body) throws IOException {
-		return new AlfrescoResponseEntity<>(HttpStatus.OK);
+		return ResponseEntity.ok().build();
 	}
 	
 	@GetMapping(value = "noderef")
 	public ResponseEntity<?> noderef(@RequestParam NodeRef nodeRef) {
-		return new AlfrescoResponseEntity<>(nodeRef, HttpStatus.OK);
+		return ResponseEntity.ok(nodeRef);
 	}
 	
 	@GetMapping(value = "query")
 	public ResponseEntity<?> query(Params params)  {
 		CollectionWithPagingInfo<Node> rootNodes = sampleService.rootNodes(params);
-		return new AlfrescoResponseEntity<>(rootNodes, HttpStatus.OK);
+		return ResponseEntity.ok(rootNodes);
 	}
 	
 	@ExceptionHandler({ IOException.class })
