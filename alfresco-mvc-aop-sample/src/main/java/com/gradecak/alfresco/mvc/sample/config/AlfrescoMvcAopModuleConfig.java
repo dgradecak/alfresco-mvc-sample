@@ -12,8 +12,8 @@ import com.gradecak.alfresco.mvc.sample.service.AopService;
 @EnableAlfrescoMvcRest(@AlfrescoDispatcherWebscript(servletContext = AlfrescoMvcAopServletContext.class))
 public class AlfrescoMvcAopModuleConfig {
 
-  @Bean
-  public AopService aopService(Repository repository) {
-    return new AopService(repository);
-  }
+	@Bean
+	public AopService aopService(Repository repository) {
+		return new AopService(repository);
+	}
 }

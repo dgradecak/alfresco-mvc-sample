@@ -7,14 +7,14 @@ import org.springframework.stereotype.Service;
 @Service
 public class AopService {
 
-  private final Repository repository;
+	private final Repository repository;
 
-  public AopService(Repository repository) {
-    this.repository = repository;
-  }
+	public AopService(Repository repository) {
+		this.repository = repository;
+	}
 
-  public NodeRef findRootNodeRef() {
-    return repository.getCompanyHome();
-  }
+	public NodeRef findRootNodeRef() {
+		return repository.getCompanyHome();
+	}
 
 }

@@ -16,8 +16,9 @@ import com.gradecak.alfresco.mvc.sample.service.QueryTemplateService;
 @EnableAlfrescoMvcRest({ @AlfrescoDispatcherWebscript(servletContext = AlfrescoMvcQueryTemplateServletContext.class) })
 public class AlfrescoMvcQueryTemplateModuleConfig {
 
-  @Bean
-  public QueryTemplateService queryTemplateService(ServiceRegistry serviceRegistry, Repository repository, Nodes nodes) {
-    return new QueryTemplateService(serviceRegistry, repository, nodes);
-  }
+	@Bean
+	public QueryTemplateService queryTemplateService(ServiceRegistry serviceRegistry, Repository repository,
+			Nodes nodes) {
+		return new QueryTemplateService(serviceRegistry, repository, nodes);
+	}
 }

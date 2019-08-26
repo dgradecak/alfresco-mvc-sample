@@ -25,31 +25,32 @@ import com.gradecak.alfresco.mvc.sample.service.QueryTemplateService;
 @AlfrescoRestResponse
 public class AlfrescoMvcQueryTemplateController {
 
-  @Autowired
-  private QueryTemplateService service;
+	@Autowired
+	private QueryTemplateService service;
 
-  @AlfrescoTransaction(readOnly = true)
-  @RequestMapping(value = "sample", method = { RequestMethod.GET })
-  public ResponseEntity<?> sample() throws IOException {
-    return ResponseEntity.ok(service.getCompanyHomeFolder());
-  }
+	@AlfrescoTransaction(readOnly = true)
+	@RequestMapping(value = "sample", method = { RequestMethod.GET })
+	public ResponseEntity<?> sample() throws IOException {
+		return ResponseEntity.ok(service.getCompanyHomeFolder());
+	}
 
-  @AlfrescoTransaction(readOnly = true)
-  @RequestMapping(value = "search", method = { RequestMethod.GET })
-  public ResponseEntity<?> search() {
-    CollectionWithPagingInfo<CmFolder> collection = CollectionWithPagingInfo.asPaged(Paging.DEFAULT, service.search());
-    return ResponseEntity.ok(collection);
-  }
+	@AlfrescoTransaction(readOnly = true)
+	@RequestMapping(value = "search", method = { RequestMethod.GET })
+	public ResponseEntity<?> search() {
+		CollectionWithPagingInfo<CmFolder> collection = CollectionWithPagingInfo.asPaged(Paging.DEFAULT,
+				service.search());
+		return ResponseEntity.ok(collection);
+	}
 
-  @AlfrescoTransaction(readOnly = true)
-  @RequestMapping(value = "nodes", method = { RequestMethod.GET })
-  public ResponseEntity<?> nodes(Params params) throws IOException {
-    return ResponseEntity.ok(service.rootNodes(params));
-  }
+	@AlfrescoTransaction(readOnly = true)
+	@RequestMapping(value = "nodes", method = { RequestMethod.GET })
+	public ResponseEntity<?> nodes(Params params) throws IOException {
+		return ResponseEntity.ok(service.rootNodes(params));
+	}
 
-  @AlfrescoTransaction(readOnly = true)
-  @RequestMapping(value = "node", method = { RequestMethod.GET })
-  public ResponseEntity<?> node() throws IOException {
-    return ResponseEntity.ok(service.findRootNode());
-  }
+	@AlfrescoTransaction(readOnly = true)
+	@RequestMapping(value = "node", method = { RequestMethod.GET })
+	public ResponseEntity<?> node() throws IOException {
+		return ResponseEntity.ok(service.findRootNode());
+	}
 }

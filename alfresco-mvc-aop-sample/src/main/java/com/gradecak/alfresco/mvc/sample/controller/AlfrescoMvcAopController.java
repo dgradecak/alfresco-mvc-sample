@@ -21,12 +21,14 @@ import com.gradecak.alfresco.mvc.sample.service.AopService;
 @RequestMapping("/aop")
 public class AlfrescoMvcAopController {
 
-  @Autowired
-  private AopService service;
+	@Autowired
+	private AopService service;
 
-  @AlfrescoTransaction(readOnly = true)
-  @RequestMapping(value = "sample", method = { RequestMethod.GET })
-  public ResponseEntity<?> sample() throws IOException {
-    return new ResponseEntity<>(new ResponseMapBuilder().withEntry("this is the company root noderef json representation", service.findRootNodeRef()).build(), HttpStatus.OK);
-  }
+	@AlfrescoTransaction(readOnly = true)
+	@RequestMapping(value = "sample", method = { RequestMethod.GET })
+	public ResponseEntity<?> sample() throws IOException {
+		return new ResponseEntity<>(new ResponseMapBuilder()
+				.withEntry("this is the company root noderef json representation", service.findRootNodeRef()).build(),
+				HttpStatus.OK);
+	}
 }

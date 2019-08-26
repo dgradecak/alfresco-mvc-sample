@@ -18,8 +18,8 @@ import com.gradecak.alfresco.mvc.sample.controller.AlfrescoMvcAopController;
 @EnableAlfrescoMvcAop(basePackageClasses = AlfrescoMvcAopController.class)
 public class AlfrescoMvcAopServletContext implements WebMvcConfigurer {
 
-	  @Override
-	  public void addFormatters(FormatterRegistry formatterRegistry) {
-	    formatterRegistry.addConverter((Converter<String, NodeRef>) new NodeRefConverter());
-	  }
+	@Override
+	public void addFormatters(FormatterRegistry formatterRegistry) {
+		formatterRegistry.addConverter((Converter<String, NodeRef>) new NodeRefConverter());
+	}
 }

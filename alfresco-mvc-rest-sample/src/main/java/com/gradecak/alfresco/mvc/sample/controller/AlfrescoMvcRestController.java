@@ -32,7 +32,7 @@ public class AlfrescoMvcRestController {
 	public ResponseEntity<?> sample() throws IOException {
 		return ResponseEntity.ok("Alfresco @MVC REST sample");
 	}
-	
+
 	@GetMapping(value = "json")
 	public ResponseEntity<?> json() throws IOException {
 		return ResponseEntity.ok(ImmutableMap.of("key1", "value1"));
@@ -45,8 +45,7 @@ public class AlfrescoMvcRestController {
 
 	@GetMapping(value = "download")
 	public ResponseEntity<?> download() throws IOException {
-		return ResponseEntity.ok()
-				.header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"module.properties\"")
+		return ResponseEntity.ok().header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"module.properties\"")
 				.body(new ClassPathResource("alfresco/module/alfresco-mvc-rest-sample/module.properties"));
 	}
 
@@ -54,26 +53,25 @@ public class AlfrescoMvcRestController {
 	public ResponseEntity<?> sample(@RequestBody final Map<String, String> body) throws IOException {
 		return ResponseEntity.ok().build();
 	}
-	
+
 	@GetMapping(value = "noderef")
 	public ResponseEntity<?> noderef(@RequestParam NodeRef nodeRef) throws IOException {
 		return ResponseEntity.ok(nodeRef);
 	}
-	
+
 	@AlfrescoRestResponse
 	@GetMapping(value = "noderefAlfresco")
 	public ResponseEntity<?> noderefAlfresco(@RequestParam NodeRef nodeRef) throws IOException {
 		return ResponseEntity.ok(nodeRef);
 	}
-	
+
 	@GetMapping(value = "exception")
 	public ResponseEntity<?> exception() throws IOException {
 		throw new RuntimeException();
 	}
-	
+
 	@ExceptionHandler({ RuntimeException.class })
 	public ResponseEntity<?> handleRuntimeException(RuntimeException exc) {
-		exc.printStackTrace();
 		return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).header("error", "internal server error").build();
 	}
 }
