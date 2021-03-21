@@ -5,35 +5,30 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.gradecak.alfresco-mvc</groupId>
-	<version>7.5.0-SNAPSHOT</version>
+	<version>8.0.0-SNAPSHOT</version>
 	<artifactId>alfresco-mvc-samples-bom</artifactId>
 	<packaging>pom</packaging>
 
 	<properties>
+		<java.version>11</java.version>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
+		<maven.build.sourceVersion>11</maven.build.sourceVersion>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<alfresco.version>6.2.0-A6</alfresco.version>
-		<alfresco.mvc.version>${project.version}</alfresco.mvc.version>
+		<dependency.alfresco.mvc.version>${project.version}</dependency.alfresco.mvc.version>
 	</properties>
 
 	<modules>
 		<module>alfresco-mvc-aop-sample</module>
 		<module>alfresco-mvc-rest-sample</module>
-		<module>alfresco-mvc-querytemplate-sample</module>
 	</modules>
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>org.alfresco</groupId>
-				<artifactId>alfresco-content-services-community-distribution</artifactId>
-				<version>${alfresco.version}</version>
-				<type>pom</type>
-				<scope>import</scope>
-			</dependency>
-			<dependency>
 				<groupId>com.gradecak.alfresco-mvc</groupId>
 				<artifactId>alfresco-mvc-bom</artifactId>
-				<version>${alfresco.mvc.version}</version>
+				<version>${dependency.alfresco.mvc.version}</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
