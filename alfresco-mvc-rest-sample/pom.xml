@@ -13,19 +13,17 @@
 	<artifactId>alfresco-mvc-rest-sample</artifactId>
 
 	<properties>
+		<java.version>11</java.version>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-		<spring-restdocs.version>1.2.1.RELEASE</spring-restdocs.version>
-		<powermock.version>1.6.2</powermock.version>
-		<junit.version>4.10</junit.version>
 	</properties>
 
 	<dependencies>
 		<dependency>
 			<groupId>com.gradecak.alfresco-mvc</groupId>
 			<artifactId>alfresco-mvc-rest</artifactId>
-			<scope>compile</scope>
+			<scope>provided</scope>
 		</dependency>
-
+		
 		<dependency>
 			<groupId>org.alfresco</groupId>
 			<artifactId>alfresco-data-model</artifactId>
@@ -43,27 +41,23 @@
 			<artifactId>alfresco-remote-api</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+		</dependency>
 	</dependencies>
 
-	<build>
-		<plugins>
-			<plugin>
-				<artifactId>maven-source-plugin</artifactId>
-				<executions>
-					<execution>
-						<id>attach-sources</id>
-						<phase>package</phase>
-						<goals>
-							<goal>jar-no-fork</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.gradecak.alfresco-mvc</groupId>
+				<artifactId>alfresco-mvc-bom</artifactId>
+				<version>${dependency.alfresco.mvc.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 
-			<plugin>
-				<groupId>org.apache.maven.plugins</groupId>
-				<artifactId>maven-compiler-plugin</artifactId>
-			</plugin>
-		</plugins>
-	</build>
 </project>
