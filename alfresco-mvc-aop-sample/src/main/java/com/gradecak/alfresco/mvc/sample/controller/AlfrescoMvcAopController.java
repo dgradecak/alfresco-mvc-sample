@@ -35,7 +35,7 @@ public class AlfrescoMvcAopController {
 	@RequestMapping(value = "sample", method = { RequestMethod.GET })
 	public ResponseEntity<?> sample() throws IOException {
 		return new ResponseEntity<>(
-				Map.of("this is the company root noderef json representation", service.findRootNodeRef2()),
+				Map.of("this is the company root noderef json representation", service.findRootNodeRef()),
 				HttpStatus.OK);
 	}
 }
