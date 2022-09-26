@@ -5,7 +5,7 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.gradecak.alfresco-mvc</groupId>
-	<version>7.0.0-RELEASE</version>
+	<version>8.0.0</version>
 	<artifactId>alfresco-mvc-samples-bom</artifactId>
 	<packaging>pom</packaging>
 
@@ -18,7 +18,6 @@
 	<modules>
 		<module>alfresco-mvc-aop-sample</module>
 		<module>alfresco-mvc-rest-sample</module>
-		<module>alfresco-mvc-querytemplate-sample</module>
 	</modules>
 
 	<dependencyManagement>
