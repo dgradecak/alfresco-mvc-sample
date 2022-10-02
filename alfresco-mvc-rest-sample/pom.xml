@@ -23,7 +23,7 @@
 			<artifactId>alfresco-mvc-rest</artifactId>
 			<scope>provided</scope>
 		</dependency>
-		
+
 		<dependency>
 			<groupId>org.alfresco</groupId>
 			<artifactId>alfresco-data-model</artifactId>

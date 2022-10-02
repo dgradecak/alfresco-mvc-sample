@@ -15,13 +15,8 @@ public class AopService {
 		this.repository = repository;
 	}
 
+	@AlfrescoTransaction(readOnly = true)
 	public NodeRef findRootNodeRef() {
 		return repository.getCompanyHome();
 	}
-	
-	@AlfrescoTransaction(readOnly = true)
-	public NodeRef findRootNodeRef2() {
-		return repository.getCompanyHome();
-	}
-
 }
