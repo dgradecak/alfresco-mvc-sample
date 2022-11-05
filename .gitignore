@@ -1,9 +1,9 @@
-.settings
 target
 bin
+.settings
 .project
 .classpath
-.metadata
-Servers
-deployment
-local
+.idea
+*iml
+*.log
+*.log.*

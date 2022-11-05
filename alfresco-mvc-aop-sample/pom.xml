@@ -1,28 +1,20 @@
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
-	<parent>
-		<groupId>com.gradecak.alfresco-mvc</groupId>
-		<version>8.0.0</version>
-		<artifactId>alfresco-mvc-samples-bom</artifactId>
-		<relativePath>../</relativePath>
-	</parent>
+	<groupId>com.gradecak.alfresco-mvc</groupId>
+	<version>8.0.0</version>
 
 	<artifactId>alfresco-mvc-aop-sample</artifactId>
 
 	<properties>
+		<java.version>11</java.version>
+		<maven.compiler.source>11</maven.compiler.source>
+		<maven.compiler.target>11</maven.compiler.target>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<dependency.acs-community-packaging.version>7.3.0</dependency.acs-community-packaging.version>
 	</properties>
 
 	<dependencies>
-			<dependency>
-			<groupId>org.springdoc</groupId>
-			<artifactId>springdoc-openapi-webmvc-core</artifactId>
-			<version>1.6.4</version>
-		</dependency>
-		
 		<dependency>
 			<groupId>com.gradecak.alfresco-mvc</groupId>
 			<artifactId>alfresco-mvc-aop</artifactId>
@@ -46,5 +38,32 @@
 			<artifactId>alfresco-repository</artifactId>
 			<scope>provided</scope>
 		</dependency>
+
+		<dependency>
+			<groupId>org.springframework</groupId>
+			<artifactId>spring-webmvc</artifactId>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
+
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.gradecak.alfresco-mvc</groupId>
+				<artifactId>alfresco-mvc-bom</artifactId>
+				<version>${project.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+
+			<dependency>
+				<groupId>org.alfresco</groupId>
+				<artifactId>acs-community-packaging</artifactId>
+				<version>${dependency.acs-community-packaging.version}</version>
+				<type>pom</type>
+				<scope>import</scope>
+				<optional>true</optional>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
 </project>
